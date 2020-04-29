@@ -78,7 +78,9 @@ namespace GinkgoWrappers
     // Add the logger object. See the different masks available in Ginkgo's
     // documentation
     convergence_logger = gko::log::Convergence<>::create(
-      executor, gko::log::Logger::criterion_check_completed_mask);
+      executor,
+      executor->get_mem_space(),
+      gko::log::Logger::criterion_check_completed_mask);
   }
 
 
